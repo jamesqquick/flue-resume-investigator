@@ -1,0 +1,30 @@
+{
+	"name": "flue-resume-investigator",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"deploy": "vite build && wrangler deploy",
+		"demo:webhook": "node --env-file=.dev.vars scripts/send-greenhouse-webhook.mjs",
+		"check:types": "tsc --noEmit",
+		"test": "vitest run --config vitest.config.ts",
+		"check": "npm run check:types && npm test && npm run build"
+	},
+	"dependencies": {
+		"@flue/runtime": "nightly",
+		"agents": "^0.20.1",
+		"hono": "^4.7.0",
+		"valibot": "^1.1.0"
+	},
+	"devDependencies": {
+		"@cloudflare/vite-plugin": "^1.39.2",
+		"@flue/cli": "nightly",
+		"@flue/vite": "nightly",
+		"@types/node": "^22.10.10",
+		"typescript": "^7.0.2",
+		"vite": "^8.0.14",
+		"vitest": "^4.0.18",
+		"wrangler": "^4.97.0"
+	}
+}
